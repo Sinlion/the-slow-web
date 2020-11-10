@@ -1,0 +1,146 @@
+<!--
+ * @Author       : Sinlion
+ * @Date         : 2020-11-09 23:33:46
+ * @LastEditTime : 2020-11-10 03:10:22
+ * @LastEditors  : Sinlion
+ * @Description  : -
+ * @FilePath     : \sinlionatgitee\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinlionAtGitee</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            text-decoration: none;
+            color: #ccc;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            margin: 5px;
+        }
+
+        .main {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0);
+            -moz-transform: translate(-50%, 0);
+            -ms-transform: translate(-50%, 0);
+            -o-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .menu {
+            color: #943434;
+        }
+
+        .page {
+            display: none;
+            text-align: left;
+            padding: 50px;
+            color: #333;
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 3px;
+        }
+
+        .demoimg {
+            background-image: url("demo.jpg");
+            width: 421px;
+            height: 0px;
+        }
+
+        .copyright {
+            display: none;
+            border-top: #ccc 1px solid;
+            color: #ccc;
+            font-size: 8px;
+        }
+    </style>
+    <div class="main">
+        <div class="menu">
+            <ul>
+                <li>
+                    <h3>The Slow Web : 体验网络诞生初的访问速度</h3>
+                </li>
+                <li>
+                    <h6><a href="https://gitee.com/sinlionAtGitee" target="_blank">开源</a></h6>
+                </li>
+            </ul>
+        </div>
+        <div class="page">
+            <h4>《挑山工》</h4>
+            <p>
+                作者：冯骥才<br><br>
+                早上,白茫茫的一片大雾.<br>
+                远处的塔、小山都望不见了.<br>
+                近处的田野、树林像隔着一层纱,模模糊糊看不清.<br>
+                太阳像个红球,慢慢地升起来,发出淡淡的光,一点儿也不耀眼.<br>
+                地里的庄稼都收完了,人们正在园子里忙着收白菜.<br>
+                雾慢慢地散了,太阳射出光芒来.<br>
+                远处的塔、小山都望得见了.近处的田野、树林也看得清了.<br>
+                柿子树上挂着许多大柿子,像一个一个的红灯笼.<br>
+                树林里落了厚厚的一层黄叶.只有松树、柏树不怕冷,还是那么绿.
+            </p>
+            <div class="demoimg"></div>
+        </div>
+        <div class="copyright">
+            <ul>
+                <li>Sinlion</li>
+                <li>&#169;</li>
+                <li>2020</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        onload = function () {
+            console.log("Sinlion");
+            const $_ = e => document.querySelectorAll(e);
+            let [text, t_, indexT, indexI, i_, s_] = [$_("p")[0].innerText, 100, 0, 0];
+            $_("p")[0].innerText = "";
+            $_(".page")[0].style.display = "block";
+            s_ = setInterval(function () {
+                if (text.length - indexT) {
+                    $_("p")[0].innerText += text[indexT];
+                    indexT++;
+                } else {
+                    clearInterval(s_);
+                    i_ = setInterval(function () {
+                        if (indexI - 259) {
+                            $_(".demoimg")[0].style.height = indexI + "px";
+                            indexI++;
+                        } else {
+                            clearInterval(i_);
+                            $_(".copyright")[0].style.display = "block";
+                        }
+                    }, t_);
+                }
+            }, t_);
+        }
+    </script>
+</body>
+
+</html>
